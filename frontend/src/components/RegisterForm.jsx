@@ -18,6 +18,7 @@ function RegisterForm({state}) {
     try {
       const data=await registerUser(name, email, password);
       setLoading(false);
+      state(true);
     } catch (err) {
       setLoading(false);
       setError(err.message || 'Registration failed. Please try again.');
