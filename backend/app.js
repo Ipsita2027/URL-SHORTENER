@@ -11,10 +11,16 @@ import cookieParser from "cookie-parser";
 dotenv.config("./.env");
 
 const app=express();
-const port=4000;
+const port=process.env.PORT||4000;
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONT_END_URL,
+];
+
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:allowedOrigins,
     credentials:true
 }));
 app.use(cookieParser());
@@ -39,8 +45,16 @@ app.get("/",(req,res)=>{
 });
 
 
-app.listen(port,()=>{
-    connectDB();
-    console.log(`Server running on port http://localhost:4000`);
-});
+const startServer = async () => {
+  try {
+    await connectDB();
+    console.log("MongoDB connected");
+    app.listen(port, () => console.log(`Server started`));
+  } catch (err) {
+    console.error("Failed to connect to DB:", err);
+    process.exit(1);
+  }
+};
+
+startServer();
 
