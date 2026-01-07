@@ -58,7 +58,6 @@ web_modules/
 
 # Optional REPL history
 .node_repl_history
-
 # Output of 'npm pack'
 *.tgz
 
@@ -66,7 +65,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
+**/.env
 .env.*
 !.env.example
 
@@ -141,4 +140,4 @@ vite.config.ts.timestamp-*
 .vite/
 
 # extra
-notes.md
+**/notes.md
