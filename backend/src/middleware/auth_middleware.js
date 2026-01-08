@@ -4,7 +4,7 @@ import { getAccessToken } from "../utils/helper.js";
 export const authWareMandatory=(req,res,next)=>{
     const token=getAccessToken(req.cookies);
     if (!token){
-        res.status(401).send("Unauthorized");
+        res.status(402).send("Unauthorized");
     }
     else{
         try{

@@ -7,12 +7,12 @@ export const checkAuth=async ()=>{
     const {isAuthenticated}=store.getState().auth;
     if (isAuthenticated!='T'){
         try{
+        console.log("About to send req for checkAuth")
         const resp=await axiosInstance.get("/api/auth/me");
-        const {user}=resp.data;
-        if (!user){
-            throw new Error("Unauthorized");
-        }
-        store.dispatch(login(user));
+        console.log("request sent for checkAuth")
+        const urls=resp.data;
+        console.log(urls)
+        store.dispatch(login(urls));
         return true;
     }
     catch(e){
@@ -30,7 +30,7 @@ export const initialCheckAuth=async()=>{
     else{
         try{
         const resp=await axiosInstance.get("/api/auth/me");
-        const {user}=resp.data;
+        const user=resp.data;
         if (!user){
             throw new Error("Unauthorized");
         }

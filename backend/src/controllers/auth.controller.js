@@ -29,10 +29,9 @@ export const register_user=async (req,res)=>{
 
 }
 
-export const isAuthenticated=async (req,res)=>{
-    const user=await findUserByID(req.userid);
-    user.password="***";
-    res.status(200).json({user:user});
+export const getUser=async (req,res)=>{
+    const userUrls=await findUserByID(req.userid);
+    res.status(200).json(userUrls);
 }
 
 export const logUserOut=async (req,res)=>{

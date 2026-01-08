@@ -5,6 +5,7 @@ export const getAllUserUrls=async (req ,res)=>{
     try{
         const userUrls=await getUrlsForUser(userid);
         res.status(200).json(userUrls);
+        console.log(userUrls);
     }
     catch(e){
         res.status(400).send(e.message);

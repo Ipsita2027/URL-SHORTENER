@@ -1,6 +1,6 @@
 const cookieConfig={
     secure:process.env.NODE_ENV==="production",
-    sameSite:"none",
+    sameSite:"lax",
     httpOnly:true,
     maxAge:1000*60*60
 

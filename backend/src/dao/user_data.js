@@ -1,5 +1,7 @@
 import userModel from "../models/user-model.js";
 
+import { findUserUrls } from "./short_url_data.js";
+
 export const createNewUser=async (name,email,password)=>{
     const user=await userModel.findOne({useremail:email});
     if (!user){
@@ -44,5 +46,8 @@ export const findUserByEmailAndPassword=async (email)=>{
 
 export const findUserByID=async (userid)=>{
     const user=await userModel.findById(userid);
-    return user;
+    if (user){
+        const urls=findUserUrls(user._id)
+        return urls;
+    }
 }
