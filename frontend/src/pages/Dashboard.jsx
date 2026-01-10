@@ -41,6 +41,8 @@ function Dashboard() {
                     </p>
                     <a
                       href={`${BACKEND_URL}/${url.short_url}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-600 text-sm font-medium"
                     >
                       {url.short_url}
