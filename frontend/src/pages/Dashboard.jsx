@@ -3,6 +3,7 @@ import UrlForm from "../components/UrlForm";
 import { motion } from "framer-motion";
 
 function Dashboard() {
+  const BACKEND_URL="https://url-shortener-2yiq.onrender.com";
   const {user}=useSelector((state)=>state.auth)
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
@@ -39,7 +40,7 @@ function Dashboard() {
                       {url.clicks}
                     </p>
                     <a
-                      href={`http://localhost:4000/${url.short_url}`}
+                      href={`${BACKEND_URL}/${url.short_url}`}
                       className="text-blue-600 text-sm font-medium"
                     >
                       {url.short_url}
