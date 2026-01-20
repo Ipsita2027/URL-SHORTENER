@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '@tanstack/react-router';
 import AuthButton from "../components/AuthButton";
+import DashboardButton from "../components/DashboardButton";
 function Navbar() {
   return (
 <nav className="bg-white border border-b-black">
@@ -11,7 +12,10 @@ function Navbar() {
       <Link to="/" className="text-xl font-bold text-gray-800">
         URL Shortener
       </Link>
+      <div className="flex items-center gap-3">
+      <DashboardButton/>
       <AuthButton/>
+      </div>
     </div>
   </div>
 </nav>

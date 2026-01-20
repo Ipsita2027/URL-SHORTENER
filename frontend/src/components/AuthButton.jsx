@@ -18,7 +18,6 @@ function AuthButton(){
             navigate({to:"/"});
         }
     }
-    
 
     return(
     <>
